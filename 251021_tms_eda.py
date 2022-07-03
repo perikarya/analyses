@@ -26,20 +26,20 @@ print(logged)
 print(logged.shape)
 print(logged.raw.shape)
 
-sc.pl.umap(logged, color='free_annotation')
-sc.pl.tsne(logged, color='free_annotation')
+sc.pl.umap(logged, color = 'free_annotation')
+sc.pl.tsne(logged, color = 'free_annotation')
 
-sc.pl.umap(logged, color='cell_ontology_id')
-sc.pl.tsne(logged, color='cell_ontology_id')
+sc.pl.umap(logged, color = 'cell_ontology_id')
+sc.pl.tsne(logged, color = 'cell_ontology_id')
 
-sc.pl.umap(logged, color='cell_ontology_class', palette=sns.color_palette("husl", 17))
-sc.pl.tsne(logged, color='cell_ontology_class')
+sc.pl.umap(logged, color = 'cell_ontology_class', palette=sns.color_palette("husl", 17))
+sc.pl.tsne(logged, color = 'cell_ontology_class')
 
-sc.tl.rank_genes_groups(logged, 'louvain', method='t-test_overestim_var', key_added = "t-test_louvain")
-sc.pl.rank_genes_groups(logged, n_genes=25, sharey=False, key = "t-test_louvain")
+sc.tl.rank_genes_groups(logged, 'louvain', method = 't-test_overestim_var', key_added = "t-test_louvain")
+sc.pl.rank_genes_groups(logged, n_genes = 25, sharey = False, key = "t-test_louvain")
 
-sc.tl.rank_genes_groups(logged, 'leiden', method='t-test', key_added = "t-test_leiden")
-sc.pl.rank_genes_groups(logged, n_genes=25, sharey=False, key = "t-test_leiden")
+sc.tl.rank_genes_groups(logged, 'leiden', method = 't-test', key_added = "t-test_leiden")
+sc.pl.rank_genes_groups(logged, n_genes = 25, sharey = False, key = "t-test_leiden")
 
-sc.tl.rank_genes_groups(logged, 'cell_ontology_class', method='t-test', key_added = "t-test_cell_ontology_class")
-sc.pl.rank_genes_groups(logged, n_genes=25, sharey=False, key = "t-test_cell_ontology_class")
+sc.tl.rank_genes_groups(logged, 'cell_ontology_class', method = 't-test', key_added = "t-test_cell_ontology_class")
+sc.pl.rank_genes_groups(logged, n_genes = 25, sharey = False, key = "t-test_cell_ontology_class")
