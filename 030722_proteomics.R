@@ -58,9 +58,9 @@ print(fit4)
 
 # visualise output
 
-VarianceBoxplot(fit4, n=30, main="Proteomics dataset", xlab="PSM count")
+VarianceBoxplot(fit4, n = 30, main = "Proteomics dataset", xlab = "PSM count")
 
-VarianceScatterplot(fit4, main="Proteomics dataset")
+VarianceScatterplot(fit4, main = "Proteomics dataset")
 
 # extract results
 
@@ -75,14 +75,14 @@ write.table(DEqMS.results,"DEqMS.results.Proteomics_dataset_v1.txt",sep = "\t",
 
 DEqMS.results$log.sca.pval = -log10(DEqMS.results$sca.P.Value)
 
-ggplot(DEqMS.results, aes(x=logFC, y=log.sca.pval )) + 
-  geom_point(size=0.5 )+
+ggplot(DEqMS.results, aes(x = logFC, y=log.sca.pval )) + 
+  geom_point(size = 0.5)+
   theme_bw(base_size = 16) + # change theme
   xlab(expression("log2(Ciclesonide/Control)")) + # x-axis label
-  ylab(expression(" -log10(P-value)")) + # y-axis label
-  geom_vline(xintercept = c(-1,1), colour = "red") + # Add fold change cutoffs
-  geom_hline(yintercept = 3, colour = "red") + # Add significance cutoffs
-  geom_vline(xintercept = 0, colour = "black") + # Add 0 lines
+  ylab(expression("-log10(P-value)")) + # y-axis label
+  geom_vline(xintercept = c(-1,1), colour = "red") + # add fold change cutoffs
+  geom_hline(yintercept = 3, colour = "red") + # add significance cutoffs
+  geom_vline(xintercept = 0, colour = "black") + # add 0 lines
   scale_colour_gradient(low = "black", high = "black", guide = FALSE)+
-  geom_text_repel(data=subset(DEqMS.results, abs(logFC)>1&log.sca.pval > 3),
-                  aes( logFC, log.sca.pval ,label=gene))
+  geom_text_repel(data = subset(DEqMS.results, abs(logFC) >  1& log.sca.pval > 3),
+                  aes(logFC, log.sca.pval ,label = gene))
