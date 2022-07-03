@@ -69,7 +69,7 @@ head(fit4$coefficients)
 head(DEqMS.results)
 
 write.table(DEqMS.results,"DEqMS.results.Proteomics_dataset_v1.txt",sep = "\t",
-            row.names = F,quote=F)
+            row.names = F, quote = F)
 
 # volcano plot
 
