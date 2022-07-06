@@ -75,7 +75,7 @@ write.table(DEqMS.results,"DEqMS.results.Proteomics_dataset_v1.txt",sep = "\t",
 
 DEqMS.results$log.sca.pval = -log10(DEqMS.results$sca.P.Value)
 
-ggplot(DEqMS.results, aes(x = logFC, y=log.sca.pval )) + 
+ggplot(DEqMS.results, aes(x = logFC, y = log.sca.pval)) + 
   geom_point(size = 0.5)+
   theme_bw(base_size = 16) + # change theme
   xlab(expression("log2(Ciclesonide/Control)")) + # x-axis label
@@ -84,5 +84,5 @@ ggplot(DEqMS.results, aes(x = logFC, y=log.sca.pval )) +
   geom_hline(yintercept = 3, colour = "red") + # add significance cutoffs
   geom_vline(xintercept = 0, colour = "black") + # add 0 lines
   scale_colour_gradient(low = "black", high = "black", guide = FALSE)+
-  geom_text_repel(data = subset(DEqMS.results, abs(logFC) >  1& log.sca.pval > 3),
-                  aes(logFC, log.sca.pval ,label = gene))
+  geom_text_repel(data = subset(DEqMS.results, abs(logFC) >  1 & log.sca.pval > 3),
+                  aes(logFC, log.sca.pval, label = gene))
